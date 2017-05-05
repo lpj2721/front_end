@@ -4,7 +4,7 @@ import createLoading from 'dva-loading';
 import './index.html';
 import './index.css';
 
-// const ERROR_MSG_DURATION = 3; // 3 秒
+const ERROR_MSG_DURATION = 3; // 3 秒
 
 // 1. Initialize
 const app = dva({
