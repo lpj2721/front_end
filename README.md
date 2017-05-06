@@ -1,12 +1,8 @@
-# dva-example-user-dashboard
-
-详见[《12 步 30 分钟，完成用户管理的 CURD 应用 (react+dva+antd)》](https://github.com/sorrycc/blog/issues/18)。
+# qtp系统前端架构
 
 ---
+1、初步完成了前端框架的搭建，模板管理页面完成了基本表单呈现，还需完成添加模板，数据交互等工作
 
-<p align="center">
-  <img src="https://zos.alipayobjects.com/rmsportal/bmkNCEoluwGaeGjYjInf.png" />
-</p>
 
 ## Getting Started
 Install dependencies.

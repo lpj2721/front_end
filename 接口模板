@@ -1,0 +1,14 @@
+接口模板：
+	1、method(可选)、
+	2、协议((protocol))、
+	3、接口描述(description)、
+	4、请求数据类型(data_type)、
+	5、响应类型(response_type)、
+	6、请求参数(request_parameter)、
+	7、响应类型(response_type)、
+	8、接口名称(Interface_name)、
+	9、状态(status)、
+	10、接口地址(Interface_address)
+
+
+
