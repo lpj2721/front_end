@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, } from 'antd';
 import styles from './MainLayout.css';
 import HeaderContent from './HeaderCont';
 import SiderContent from './SiderCont';

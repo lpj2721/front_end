@@ -2,28 +2,27 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'dva/router';
 
-function HeaderContent({ location }) {
-  return (
-    <Menu
-      selectedKeys={[location.pathname]}
-      mode="horizontal"
-      theme="dark"
-      style={{ lineHeight: '64px', padding: 0 }}
-    >
-      <Menu.Item key="/users">
-        <Link to="users"><Icon type="bars" />Users</Link>
-      </Menu.Item>
-      <Menu.Item key="/">
-        <Link to="/"><Icon type="home" />Home</Link>
-      </Menu.Item>
-      <Menu.Item key="/404">
-        <Link to="/page-you-dont-know"><Icon type="frown-circle" />404</Link>
-      </Menu.Item>
-      <Menu.Item key="/login">
-        <Link to="/login"><Icon type="frown-circle" />404</Link>
-      </Menu.Item>
-    </Menu>
-  );
+function HeaderContent() {
+  return (<div></div>);
 }
 
 export default HeaderContent;
+// {/*<Menu*/}
+//   {/*selectedKeys={[location.pathname]}*/}
+//   {/*mode="horizontal"*/}
+//   {/*theme="dark"*/}
+//   {/*style={{ lineHeight: '64px', padding: 0 }}*/}
+// {/*>*/}
+//   {/*<Menu.Item key="/users">*/}
+//     {/*<Link to="users"><Icon type="bars" />InterfaceComponent</Link>*/}
+//   {/*</Menu.Item>*/}
+//   {/*<Menu.Item key="/">*/}
+//     {/*<Link to="/"><Icon type="home" />Home</Link>*/}
+//   {/*</Menu.Item>*/}
+//   {/*<Menu.Item key="/404">*/}
+//     {/*<Link to="/page-you-dont-know"><Icon type="frown-circle" />404</Link>*/}
+//   {/*</Menu.Item>*/}
+//   {/*<Menu.Item key="/login">*/}
+//     {/*<Link to="/login"><Icon type="frown-circle" />404</Link>*/}
+//   {/*</Menu.Item>*/}
+// {/*</Menu>*/}

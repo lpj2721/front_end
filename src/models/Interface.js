@@ -1,4 +1,4 @@
-import * as usersService from '../services/users';
+import * as usersService from '../services/Interface';
 
 export default {
   namespace: 'users',
@@ -14,6 +14,7 @@ export default {
   },
   effects: {
     *fetch({ payload: { page = 1 } }, { call, put }) {
+      console.log("刷新页面");
       const { data, headers } = yield call(usersService.fetch, { page });
       yield put({
         type: 'save',

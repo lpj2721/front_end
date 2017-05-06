@@ -17,7 +17,7 @@
 .logo {
   width: 200px;
   height: 64px;
-  background: #404040;
+  background: rgba(23, 75, 90, 0.96);
   text-align: center;
   line-height:3.5;
   float: left;

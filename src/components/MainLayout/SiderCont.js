@@ -15,26 +15,18 @@ function SiderContent() {
       defaultOpenKeys={['sub1']}
       style={{ background: '#fff', height: '100%' }}
     >
-      <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
-        <Menu.Item key="1">
-          <Link to="users"><Icon type="bars" />Users</Link>
+        <Menu.Item key="1" style={{height:'64',fontSize:'18'}}>
+          <Link to="users"><Icon type="bars" style={{marginTop:'18',marginRight:'10', marginLeft: '10'}}/>模板管理</Link>
         </Menu.Item>
-        <Menu.Item key="2">option2</Menu.Item>
-        <Menu.Item key="3">option3</Menu.Item>
-        <Menu.Item key="4">option4</Menu.Item>
-      </SubMenu>
-      <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-        <Menu.Item key="5">option5</Menu.Item>
-        <Menu.Item key="6">option6</Menu.Item>
-        <Menu.Item key="7">option7</Menu.Item>
-        <Menu.Item key="8">option8</Menu.Item>
-      </SubMenu>
-      <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-        <Menu.Item key="9">option9</Menu.Item>
-        <Menu.Item key="10">option10</Menu.Item>
-        <Menu.Item key="11">option11</Menu.Item>
-        <Menu.Item key="12">option12</Menu.Item>
-      </SubMenu>
+        <Menu.Item key="2" style={{height:'64',fontSize:'18'}}>
+          <Link to="#"><Icon type="bars" style={{marginTop:'18',marginRight:'10', marginLeft: '10'}}/>模板配置</Link>
+        </Menu.Item>
+        <Menu.Item key="3" style={{height:'64',fontSize:'18'}}>
+          <Link to="#"><Icon type="bars" style={{marginTop:'18',marginRight:'10', marginLeft: '10'}}/>测试管理</Link>
+        </Menu.Item>
+        <Menu.Item key="4" style={{height:'64',fontSize:'18'}}>
+          <Link to="#"><Icon type="bars" style={{marginTop:'18',marginRight:'10', marginLeft: '10'}}/>测试结果</Link>
+        </Menu.Item>
     </Menu>
   );
 }

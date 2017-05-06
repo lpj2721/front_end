@@ -4,7 +4,7 @@ import { Table, Pagination, Popconfirm, Button } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './Users.css';
 import { PAGE_SIZE } from '../../constants';
-import UserModal from './UserModal';
+import UserModal from './InterfaceModal';
 
 function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   function deleteHandler(id) {
@@ -15,6 +15,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   }
 
   function pageChangeHandler(page) {
+    console.log(xxx);
     dispatch(routerRedux.push({
       pathname: '/users',
       query: { page },
@@ -42,24 +43,52 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
 
   const columns = [
     {
-      title: 'Name',
+      title: '名称',
       dataIndex: 'name',
       key: 'name',
+      width:120,
       render: text => <a href="">{text}</a>,
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: '协议',
+      dataIndex: 'protocol',
+      key: 'protocol',
+      width:120,
     },
     {
-      title: 'Website',
-      dataIndex: 'website',
-      key: 'website',
+      title: 'method',
+      dataIndex: 'method',
+      key: 'method',
+      width:120,
+    },
+    {
+      title: '请求类型',
+      dataIndex: 'dataType',
+      key: 'dataType',
+      width:120,
+    },
+    {
+      title: '响应类型',
+      dataIndex: 'responseType',
+      key: 'responseType',
+      width:120,
+    },
+    {
+      title: '接口地址',
+      dataIndex: 'InterfaceAddress',
+      key: 'InterfaceAddress',
+      width:250,
+    },
+    {
+      title: '参数',
+      dataIndex: 'parameter',
+      key: 'parameter',
+      width:100,
     },
     {
       title: 'Operation',
       key: 'operation',
+      width:150,
       render: (text, record) => (
         <span className={styles.operation}>
           <UserModal record={record} onOk={editHandler.bind(null, record.id)}>

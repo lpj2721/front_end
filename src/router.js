@@ -34,8 +34,8 @@ function RouterConfig({ history, app }) {
       name: 'UsersPage',
       getComponent(nextState, cb) {
         require.ensure([], (require) => {
-          registerModel(app, require('./models/users'));
-          cb(null, require('./routes/Users/Users'));
+          registerModel(app, require('./models/Interface'));
+          cb(null, require('./routes/Interface/Interface'));
         });
       },
     },

@@ -3,7 +3,7 @@ import { Modal, Form, Input } from 'antd';
 
 const FormItem = Form.Item;
 
-class UserEditModal extends Component {
+class InterfaceEditModal extends Component {
 
   constructor(props) {
     super(props);
@@ -93,4 +93,4 @@ class UserEditModal extends Component {
   }
 }
 
-export default Form.create()(UserEditModal);
+export default Form.create()(InterfaceEditModal);
