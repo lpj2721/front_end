@@ -97,6 +97,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
           <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
             <a href="">Delete</a>
           </Popconfirm>
+
         </span>
       ),
     },
@@ -107,7 +108,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
       <div>
         <div className={styles.create}>
           <UserModal record={{}} onOk={createHandler}>
-            <Button type="primary">Create User</Button>
+            <Button type="primary">添加模板</Button>
           </UserModal>
         </div>
         <Table
