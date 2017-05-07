@@ -4,8 +4,9 @@
 import request from '../utils/request';
 
 export function sign(values) {
+  const data = {opr:"login",data:values};
   return request('/api/login', {
     method: 'POST',
-    body: JSON.stringify(values),
+    body: JSON.stringify(data),
   });
 }

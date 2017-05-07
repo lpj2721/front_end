@@ -25,8 +25,7 @@ const Login = ({
       if (errors) {
         return
       }
-      const data = {opr:"login",data:values};
-      dispatch({ type: 'login/login', payload: data })
+      dispatch({ type: 'login/login', payload: values })
     })
   }
 

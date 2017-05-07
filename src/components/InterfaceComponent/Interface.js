@@ -15,7 +15,6 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   }
 
   function pageChangeHandler(page) {
-    console.log(xxx);
     dispatch(routerRedux.push({
       pathname: '/users',
       query: { page },
@@ -27,7 +26,6 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
       'id':id,
       'values':values
     };
-    console.log(2, data);
     dispatch({
       type: 'users/patch',
       payload: { data },
@@ -35,6 +33,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   }
 
   function createHandler(values) {
+    console.log(2223, values);
     dispatch({
       type: 'users/create',
       payload: values,
@@ -44,8 +43,8 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   const columns = [
     {
       title: '名称',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: '_id',
+      key: '_id',
       width:120,
       render: text => <a href="">{text}</a>,
     },
@@ -63,25 +62,25 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
     },
     {
       title: '请求类型',
-      dataIndex: 'dataType',
+      dataIndex: 'data_type',
       key: 'dataType',
       width:120,
     },
     {
       title: '响应类型',
-      dataIndex: 'responseType',
+      dataIndex: 'response_type',
       key: 'responseType',
       width:120,
     },
     {
       title: '接口地址',
-      dataIndex: 'InterfaceAddress',
+      dataIndex: 'Interface_address',
       key: 'InterfaceAddress',
       width:250,
     },
     {
       title: '参数',
-      dataIndex: 'parameter',
+      dataIndex: 'request_parameter',
       key: 'parameter',
       width:100,
     },

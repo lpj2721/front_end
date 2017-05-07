@@ -14,12 +14,13 @@ export default {
   },
   effects: {
     *fetch({ payload: { page = 1 } }, { call, put }) {
-      console.log("刷新页面");
       const { data, headers } = yield call(usersService.fetch, { page });
+      const list = data.data;
+      console.log("刷新页面", list);
       yield put({
         type: 'save',
         payload: {
-          data,
+          data:list,
           total: parseInt(headers['x-total-count'], 10),
           page: parseInt(page, 10),
         },
@@ -30,12 +31,12 @@ export default {
       yield put({ type: 'reload' });
     },
     *patch({ payload: { data } }, { call, put }) {
-      yield call(usersService.patch, data);
+      yield call(usersService.modify, data);
       yield put({ type: 'reload' });
     },
     *create({ payload: values }, { call, put }) {
-      const data = {opr: "login", data: values};
-      yield call(usersService.create, data);
+      console.log(323223, values);
+      yield call(usersService.create, values);
       yield put({ type: 'reload' });
     },
     *reload(action, { put, select }) {

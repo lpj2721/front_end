@@ -15,7 +15,6 @@ export default {
     *login({ payload, }, { call, put }) {
       yield put({ type: 'showLoginLoading' });
       const data = yield call(loginServer.sign, payload);
-      console.log(1,data.data);
       yield put({ type: 'hideLoginLoading' });
       if (data.data.success){
         message.success('登录成功！');

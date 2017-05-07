@@ -30,6 +30,7 @@ class InterfaceEditModal extends Component {
     const { onOk } = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        console.log(1112,values);
         onOk(values);
         this.hideModelHandler();
       }
@@ -39,7 +40,7 @@ class InterfaceEditModal extends Component {
   render() {
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const { name, protocol, method, data_type, response_type, request_parameter, Interface_address } = this.props.record;
+    const { _id, protocol, method, data_type, response_type, request_parameter, Interface_address } = this.props.record;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 16 },
@@ -62,8 +63,8 @@ class InterfaceEditModal extends Component {
               label="名称"
             >
               {
-                getFieldDecorator('interface_name', {
-                  initialValue: name,
+                getFieldDecorator('_id', {
+                  initialValue: _id,
                 })(<Input />)
               }
             </FormItem>
@@ -111,11 +112,11 @@ class InterfaceEditModal extends Component {
                   </Select>)
               }
             </FormItem>
-                        <FormItem
-                          className={ style.FormItem }
-                          {...formItemLayout}
-                          label="响应类型"
-                        >
+            <FormItem
+              className={ style.FormItem }
+              {...formItemLayout}
+              label="响应类型"
+            >
               {
                 getFieldDecorator('response_type', {
                   initialValue: response_type,

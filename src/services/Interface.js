@@ -2,25 +2,34 @@ import request from '../utils/request';
 import { PAGE_SIZE } from '../constants';
 
 export function fetch({ page }) {
-  return request(`/api/users?_page=${page}&_limit=${PAGE_SIZE}`);
-}
-
-export function remove(id) {
-  return request(`/api/users/${id}`, {
-    method: 'DELETE',
+  const data = {opr: "fetch", data: {page: page, PAGE_SIZE: PAGE_SIZE}};
+  return request('/api/interface', {
+    method: 'POST',
+    body: JSON.stringify(data),
   });
 }
 
-export function patch(data) {
-  return request('/api/users', {
-    method: 'PATCH',
+export function remove(id) {
+  const data = {opr: "remove", data: {id:id}};
+  return request('/api/interface', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
+export function modify(values) {
+  const data = {opr: "modify", data: values};
+  return request('/api/interface', {
+    method: 'POST',
     body: JSON.stringify(data),
   });
 }
 
 export function create(values) {
-  return request('/api/users', {
+  const data = {opr: "create", data: values};
+  return request('/api/interface', {
     method: 'POST',
-    body: JSON.stringify(values),
+    body: JSON.stringify(data),
+
   });
 }
