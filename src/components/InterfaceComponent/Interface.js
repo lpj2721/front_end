@@ -7,10 +7,11 @@ import { PAGE_SIZE } from '../../constants';
 import UserModal from './InterfaceModal';
 
 function Users({ dispatch, list: dataSource, loading, total, page: current }) {
-  function deleteHandler(id) {
+  function deleteHandler(record) {
+    console.log(22244, record);
     dispatch({
       type: 'users/remove',
-      payload: id,
+      payload: record,
     });
   }
 
@@ -24,7 +25,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   function editHandler(id, values) {
     let data = {
       'id':id,
-      'values':values
+      'data':values
     };
     dispatch({
       type: 'users/patch',
@@ -93,15 +94,13 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
           <UserModal record={record} onOk={editHandler.bind(null, record.id)}>
             <a>Edit</a>
           </UserModal>
-          <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
+          <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record._id)}>
             <a href="">Delete</a>
           </Popconfirm>
-
         </span>
       ),
     },
   ];
-
   return (
     <div className={styles.normal}>
       <div>

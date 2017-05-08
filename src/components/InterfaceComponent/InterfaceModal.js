@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Modal, Form, Radio, Input,Select } from 'antd';
+import * as usersService from '../../services/Interface';
 import style from './Interface.css'
 
 const FormItem = Form.Item;
 
 class InterfaceEditModal extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
     };
   }
-
   showModelHandler = (e) => {
     if (e) e.stopPropagation();
     this.setState({
@@ -65,6 +64,7 @@ class InterfaceEditModal extends Component {
               {
                 getFieldDecorator('_id', {
                   initialValue: _id,
+                  rules: [{ required: true, message: '请输入名称!' }],
                 })(<Input />)
               }
             </FormItem>
@@ -134,6 +134,7 @@ class InterfaceEditModal extends Component {
               {
                 getFieldDecorator('Interface_address', {
                   initialValue: Interface_address,
+                  rules: [{ required: true, type: 'url', message: '请输入正确的接口地址!' }],
                 })(<Input />)
               }
             </FormItem>

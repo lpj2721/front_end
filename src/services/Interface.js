@@ -10,6 +10,7 @@ export function fetch({ page }) {
 }
 
 export function remove(id) {
+  console.log(22333, id);
   const data = {opr: "remove", data: {id:id}};
   return request('/api/interface', {
     method: 'POST',
@@ -32,4 +33,13 @@ export function create(values) {
     body: JSON.stringify(data),
 
   });
+}
+
+  export function check(id) {
+    const data = {opr: "check", data: id};
+    return request('/api/interface', {
+      method: 'POST',
+      body: JSON.stringify(data),
+
+    });
 }

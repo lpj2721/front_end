@@ -27,6 +27,7 @@ export default {
       });
     },
     *remove({ payload: id }, { call, put }) {
+      console.log(222222, id);
       yield call(usersService.remove, id);
       yield put({ type: 'reload' });
     },
@@ -35,7 +36,6 @@ export default {
       yield put({ type: 'reload' });
     },
     *create({ payload: values }, { call, put }) {
-      console.log(323223, values);
       yield call(usersService.create, values);
       yield put({ type: 'reload' });
     },
@@ -43,6 +43,9 @@ export default {
       const page = yield select(state => state.users.page);
       yield put({ type: 'fetch', payload: { page } });
     },
+    *check({ payload: id }, { call }) {
+      yield call(usersService.check, id);
+    }
   },
   subscriptions: {
     setup({ dispatch, history }) {
