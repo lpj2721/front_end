@@ -78,8 +78,8 @@ class InterfaceEditModal extends Component {
                   initialValue: protocol,
                 })(
                   <Radio.Group >
-                    <Radio value="protocol">HTTP</Radio>
-                    <Radio value="https">HTTPS</Radio>
+                    <Radio value="HTTP">HTTP</Radio>
+                    <Radio value="HTTPS">HTTPS</Radio>
                   </Radio.Group>)
               }
             </FormItem>
@@ -93,8 +93,8 @@ class InterfaceEditModal extends Component {
                   initialValue: method,
                 })(
                   <Radio.Group >
-                    <Radio value="post">POST</Radio>
-                    <Radio value="get">GET</Radio>
+                    <Radio value="POST">POST</Radio>
+                    <Radio value="GET">GET</Radio>
                   </Radio.Group>)
               }
             </FormItem>
