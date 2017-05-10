@@ -1,22 +1,26 @@
+/**
+ * Created by WL on 2017/5/10.
+ */
 import React from 'react';
 import { connect } from 'dva';
 import { Table, Pagination, Popconfirm, Button } from 'antd';
 import { routerRedux } from 'dva/router';
-import styles from './Users.css';
+import styles from './HeaderModal.css';
 import { PAGE_SIZE } from '../../constants';
-import EditModal from './InterfaceModal';
+import HeaderEditModal from './HeaderModal';
 
-function Interface({ dispatch, list: dataSource, loading, total, page: current }) {
+function HeaderConfig({ dispatch, list: dataSource, loading, total, page: current }) {
   function deleteHandler(record) {
+    console.log(22244, record);
     dispatch({
-      type: 'interface/remove',
+      type: 'headerConfig/remove',
       payload: record,
     });
   }
 
   function pageChangeHandler(page) {
     dispatch(routerRedux.push({
-      pathname: '/interface',
+      pathname: '/headerConfig',
       query: { page },
     }));
   }
@@ -27,14 +31,15 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
       'data':values
     };
     dispatch({
-      type: 'interface/patch',
+      type: 'headerConfig/patch',
       payload: { data },
     });
   }
 
   function createHandler(values) {
+    console.log(2223, values);
     dispatch({
-      type: 'interface/create',
+      type: 'headerConfig/create',
       payload: values,
     });
   }
@@ -89,11 +94,11 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
       width:150,
       render: (text, record) => (
         <span className={styles.operation}>
-          <EditModal record={record} onOk={editHandler.bind(null, record.id)}>
-            <a>Edit</a>
-          </EditModal>
+          <HeaderEditModal record={record} onOk={editHandler.bind(null, record.id)}>
+            <a>编辑</a>
+          </HeaderEditModal>
           <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record._id)}>
-            <a href="">Delete</a>
+            <a href="">删除</a>
           </Popconfirm>
         </span>
       ),
@@ -103,9 +108,9 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
     <div className={styles.normal}>
       <div>
         <div className={styles.create}>
-          <EditModal record={{}} onOk={createHandler}>
+          <HeaderEditModal record={{}} onOk={createHandler}>
             <Button type="primary">添加模板</Button>
-          </EditModal>
+          </HeaderEditModal>
         </div>
         <Table
           columns={columns}
@@ -127,13 +132,14 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
 }
 
 function mapStateToProps(state) {
-  const { list, total, page } = state.interface;
+  console.log(state.headerConfig);
+  const { list, total, page } = state.headerConfig;
   return {
-    loading: state.loading.models.interface,
+    loading: state.loading.models.headerConfig,
     list,
     total,
     page,
   };
 }
 
-export default connect(mapStateToProps)(Interface);
+export default connect(mapStateToProps)(HeaderConfig);

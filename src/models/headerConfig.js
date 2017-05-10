@@ -1,7 +1,10 @@
+/**
+ * Created by WL on 2017/5/10.
+ */
 import * as usersService from '../services/Interface';
 
 export default {
-  namespace: 'interface',
+  namespace: 'headerConfig',
   state: {
     list: [],
     total: null,
@@ -18,7 +21,6 @@ export default {
       const list = data.data;
       const total = data.total;
       yield put({
-
         type: 'save',
         payload: {
           data:list,
@@ -28,6 +30,7 @@ export default {
       });
     },
     *remove({ payload: id }, { call, put }) {
+      console.log(222222, id);
       yield call(usersService.remove, id);
       yield put({ type: 'reload' });
     },
@@ -50,7 +53,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/interface') {
+        if (pathname === '/headerConfig') {
           dispatch({ type: 'fetch', payload: query });
         }
       });

@@ -1,10 +1,13 @@
+/**
+ * Created by WL on 2017/5/10.
+ */
 import React, { Component } from 'react';
 import { Modal, Form, Radio, Input,Select } from 'antd';
-import style from './Interface.css'
+import style from './HeaderModal.css'
 
 const FormItem = Form.Item;
 
-class InterfaceEditModal extends Component {
+class HeaderEditModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +31,7 @@ class InterfaceEditModal extends Component {
     const { onOk } = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        console.log(1112,values);
         onOk(values);
         this.hideModelHandler();
       }
@@ -82,10 +86,10 @@ class InterfaceEditModal extends Component {
               }
             </FormItem>
             <FormItem
-            className={ style.FormItem }
-            {...formItemLayout}
-            label="method"
-          >
+              className={ style.FormItem }
+              {...formItemLayout}
+              label="method"
+            >
               {
                 getFieldDecorator('method', {
                   initialValue: method,
@@ -133,7 +137,8 @@ class InterfaceEditModal extends Component {
                 getFieldDecorator('Interface_address', {
                   initialValue: Interface_address,
                   rules: [{ required: true, type: 'url', message: '请输入正确的接口地址!' }],
-                })(<Input />)
+                })(<Input/>
+              )
               }
             </FormItem>
             <FormItem
@@ -153,4 +158,4 @@ class InterfaceEditModal extends Component {
   }
 }
 
-export default Form.create()(InterfaceEditModal);
+export default Form.create()(HeaderEditModal);

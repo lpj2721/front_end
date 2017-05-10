@@ -11,14 +11,13 @@ function SiderContent() {
     <Menu
       mode="inline"
       defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
       style={{ background: '#fff', height: '100%' }}
     >
         <Menu.Item key="1" style={{height:'64px',fontSize:'18px'}}>
-          <Link to="/users"><Icon type="appstore" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>模板管理</Link>
+          <Link to="/interface"><Icon type="appstore" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>模板管理</Link>
         </Menu.Item>
         <Menu.Item key="2" style={{height:'64px',fontSize:'18px'}}>
-          <Link to="#"><Icon type="setting" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>模板配置</Link>
+          <Link to="/headerConfig"><Icon type="setting" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>模板配置</Link>
         </Menu.Item>
         <Menu.Item key="3" style={{height:'64px',fontSize:'18px'}}>
           <Link to="#"><Icon type="share-alt" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>测试管理</Link>

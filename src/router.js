@@ -30,12 +30,23 @@ function RouterConfig({ history, app }) {
       },
     },
     {
-      path: 'users',
-      name: 'UsersPage',
+      path: 'interface',
+      name: 'InterfacePage',
       getComponent(nextState, cb) {
         require.ensure([], (require) => {
           registerModel(app, require('./models/Interface'));
           cb(null, require('./routes/Interface/Interface'));
+        });
+      },
+    },
+    {
+      path: 'headerConfig',
+      name: 'headerConfigPage',
+      getComponent(nextState, cb) {
+        require.ensure([], (require) => {
+          console.log(333);
+          registerModel(app, require('./models/headerConfig'));
+          cb(null, require('./routes/Interface/HeaderConfig'));
         });
       },
     },
