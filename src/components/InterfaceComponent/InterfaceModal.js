@@ -23,6 +23,18 @@ class InterfaceEditModal extends Component {
       visible: false,
     });
   };
+  CheckJSON = (rule,value, callback) => {
+    console.log(value, 1111);
+    if (typeof value === 'string') {
+      try {
+        JSON.parse(value);
+        callback()
+      } catch(e) {
+        console.log(e);
+        callback('请输入JSON格式')
+      }
+    }
+};
 
   okHandler = () => {
     const { onOk } = this.props;
@@ -37,7 +49,7 @@ class InterfaceEditModal extends Component {
   render() {
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const { _id, protocol, method, data_type, response_type, request_parameter, Interface_address } = this.props.record;
+    const { _id, protocol, method, data_type, response_type, request_parameter, Interface_address, Interface_header } = this.props.record;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 16 },
@@ -139,10 +151,30 @@ class InterfaceEditModal extends Component {
             <FormItem
               className={ style.FormItem }
               {...formItemLayout}
+              label="Headers">
+                {
+                  getFieldDecorator('Interface_header', {
+                    initialValue: Interface_header,
+                    rules: [{
+                      required: true, message: '不能为空！',
+                    }, {
+                      validator: this.CheckJSON,
+                    }],
+                  })(<Input type="textarea" />)
+                }
+            </FormItem>
+            <FormItem
+              className={ style.FormItem }
+              {...formItemLayout}
               label="参数">
                 {
                   getFieldDecorator('request_parameter', {
                     initialValue: request_parameter,
+                    rules: [{
+                      required: true, message: '不能为空！',
+                    }, {
+                      validator: this.CheckJSON,
+                    }],
                   })(<Input type="textarea" />)
                 }
             </FormItem>

@@ -32,15 +32,21 @@ export default {
       yield put({ type: 'reload' });
     },
     *patch({ payload: { data } }, { call, put }) {
-      yield call(usersService.modify, data);
-      yield put({ type: 'reload' });
+      const resp = yield call(usersService.modify, data);
+      console.log(resp);
+      if (resp.data.success){
+        yield put({ type: 'reload' });
+      } else {
+        message.error('！');
+      }
+
     },
     *create({ payload: values }, { call, put }) {
       yield call(usersService.create, values);
       yield put({ type: 'reload' });
     },
     *reload(action, { put, select }) {
-      const page = yield select(state => state.users.page);
+      const page = yield select(state => state.interface.page);
       yield put({ type: 'fetch', payload: { page } });
     },
     *check({ payload: id }, { call }) {

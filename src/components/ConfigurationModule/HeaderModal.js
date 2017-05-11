@@ -26,7 +26,18 @@ class HeaderEditModal extends Component {
       visible: false,
     });
   };
-
+  CheckJSON = (rule,value, callback) => {
+    console.log(value, 1111);
+    if (typeof value === 'string') {
+      try {
+        JSON.parse(value);
+        callback()
+      } catch(e) {
+        console.log(e);
+        callback('请输入JSON格式')
+      }
+    }
+  };
   okHandler = () => {
     const { onOk } = this.props;
     this.props.form.validateFields((err, values) => {
@@ -41,7 +52,7 @@ class HeaderEditModal extends Component {
   render() {
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const { _id, protocol, method, data_type, response_type, request_parameter, Interface_address } = this.props.record;
+    const { _id, parameter_rules, header_rules } = this.props.record;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 16 },
@@ -66,88 +77,26 @@ class HeaderEditModal extends Component {
               {
                 getFieldDecorator('_id', {
                   initialValue: _id,
-                  rules: [{ required: true, message: '请输入名称!' }],
-                })(<Input />)
+                })(<Input disabled="true" />)
               }
             </FormItem>
             <FormItem
               className={ style.FormItem }
               {...formItemLayout}
-              label="协议"
-            >
-              {
-                getFieldDecorator('protocol', {
-                  initialValue: protocol,
-                })(
-                  <Radio.Group >
-                    <Radio value="HTTP">HTTP</Radio>
-                    <Radio value="HTTPS">HTTPS</Radio>
-                  </Radio.Group>)
-              }
-            </FormItem>
-            <FormItem
-              className={ style.FormItem }
-              {...formItemLayout}
-              label="method"
-            >
-              {
-                getFieldDecorator('method', {
-                  initialValue: method,
-                })(
-                  <Radio.Group >
-                    <Radio value="POST">POST</Radio>
-                    <Radio value="GET">GET</Radio>
-                  </Radio.Group>)
-              }
-            </FormItem>
-            <FormItem
-              className={ style.FormItem }
-              {...formItemLayout}
-              label="请求类型"
-            >
-              {
-                getFieldDecorator('data_type', {
-                  initialValue: data_type,
-                })(
-                  <Select style={{ width: 240 }}>
-                    <Select.Option value="application/json">(JSON)application/json</Select.Option>
-                  </Select>)
-              }
-            </FormItem>
-            <FormItem
-              className={ style.FormItem }
-              {...formItemLayout}
-              label="响应类型"
-            >
-              {
-                getFieldDecorator('response_type', {
-                  initialValue: response_type,
-                })(
-                  <Select style={{ width: 240 }}>
-                    <Select.Option value="application/json">(JSON)application/json</Select.Option>
-                  </Select>)
-              }
-            </FormItem>
-            <FormItem
-              className={ style.FormItem }
-              {...formItemLayout}
-              label="接口地址"
-            >
-              {
-                getFieldDecorator('Interface_address', {
-                  initialValue: Interface_address,
-                  rules: [{ required: true, type: 'url', message: '请输入正确的接口地址!' }],
-                })(<Input/>
-              )
-              }
-            </FormItem>
-            <FormItem
-              className={ style.FormItem }
-              {...formItemLayout}
-              label="参数">
+              label="Header配置">
                 {
-                  getFieldDecorator('request_parameter', {
-                    initialValue: request_parameter,
+                  getFieldDecorator('header_rules', {
+                    initialValue: header_rules,
+                  })(<Input  className={ style.input } type="textarea" />)
+                }
+            </FormItem>
+            <FormItem
+              className={ style.FormItem }
+              {...formItemLayout}
+              label="参数配置">
+                {
+                  getFieldDecorator('parameter_rules', {
+                    initialValue: parameter_rules,
                   })(<Input type="textarea" />)
                 }
             </FormItem>

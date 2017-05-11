@@ -53,40 +53,16 @@ function HeaderConfig({ dispatch, list: dataSource, loading, total, page: curren
       render: text => <a href="">{text}</a>,
     },
     {
-      title: '协议',
-      dataIndex: 'protocol',
-      key: 'protocol',
-      width:120,
+      title: 'header参数',
+      dataIndex: 'header_rules',
+      key: 'InterfaceHeader',
+      width:200,
     },
     {
-      title: 'method',
-      dataIndex: 'method',
-      key: 'method',
-      width:120,
-    },
-    {
-      title: '请求类型',
-      dataIndex: 'data_type',
-      key: 'dataType',
-      width:120,
-    },
-    {
-      title: '响应类型',
-      dataIndex: 'response_type',
-      key: 'responseType',
-      width:120,
-    },
-    {
-      title: '接口地址',
-      dataIndex: 'Interface_address',
-      key: 'InterfaceAddress',
-      width:250,
-    },
-    {
-      title: '参数',
-      dataIndex: 'request_parameter',
+      title: '参数配置',
+      dataIndex: 'parameter_rules',
       key: 'parameter',
-      width:100,
+      width:300,
     },
     {
       title: 'Operation',
@@ -107,11 +83,6 @@ function HeaderConfig({ dispatch, list: dataSource, loading, total, page: curren
   return (
     <div className={styles.normal}>
       <div>
-        <div className={styles.create}>
-          <HeaderEditModal record={{}} onOk={createHandler}>
-            <Button type="primary">添加模板</Button>
-          </HeaderEditModal>
-        </div>
         <Table
           columns={columns}
           dataSource={dataSource}

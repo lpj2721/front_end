@@ -44,20 +44,20 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
       title: '名称',
       dataIndex: '_id',
       key: '_id',
-      width:120,
+      width:100,
       render: text => <a href="">{text}</a>,
     },
     {
       title: '协议',
       dataIndex: 'protocol',
       key: 'protocol',
-      width:120,
+      width:100,
     },
     {
       title: 'method',
       dataIndex: 'method',
       key: 'method',
-      width:120,
+      width:100,
     },
     {
       title: '请求类型',
@@ -75,13 +75,19 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
       title: '接口地址',
       dataIndex: 'Interface_address',
       key: 'InterfaceAddress',
-      width:250,
+      width:120,
+    },
+    {
+      title: 'header参数',
+      dataIndex: 'Interface_header',
+      key: 'InterfaceHeader',
+      width:200,
     },
     {
       title: '参数',
       dataIndex: 'request_parameter',
       key: 'parameter',
-      width:100,
+      width:250,
     },
     {
       title: 'Operation',
@@ -90,10 +96,10 @@ function Interface({ dispatch, list: dataSource, loading, total, page: current }
       render: (text, record) => (
         <span className={styles.operation}>
           <EditModal record={record} onOk={editHandler.bind(null, record.id)}>
-            <a>Edit</a>
+            <a>编辑</a>
           </EditModal>
           <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record._id)}>
-            <a href="">Delete</a>
+            <a href="">删除</a>
           </Popconfirm>
         </span>
       ),

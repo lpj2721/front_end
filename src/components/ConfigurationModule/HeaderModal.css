@@ -9,3 +9,9 @@
 .operation a {
   margin: 0 .5em;
 }
+.FormItem {
+  margin-bottom: 5px;
+}
+.input{
+  height: 200px;
+}

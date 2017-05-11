@@ -1,0 +1,15 @@
+参数配置规则
+{"rules":[{"arg_name":"rule1",
+		"arg_type":"int",
+		"arg_rules": [1,2]
+		},{
+		"arg_name":"user_name",
+		"arg_type":"string",
+		"arg_rules": ["name","name1"]
+		},{
+		"arg_name":"password",
+		"arg_type":"string",
+		"arg_rules": ["name","name1"]
+		},
+]
+}

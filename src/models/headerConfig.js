@@ -1,7 +1,7 @@
 /**
  * Created by WL on 2017/5/10.
  */
-import * as usersService from '../services/Interface';
+import * as usersService from '../services/headerConfig';
 
 export default {
   namespace: 'headerConfig',
@@ -29,21 +29,12 @@ export default {
         },
       });
     },
-    *remove({ payload: id }, { call, put }) {
-      console.log(222222, id);
-      yield call(usersService.remove, id);
-      yield put({ type: 'reload' });
-    },
     *patch({ payload: { data } }, { call, put }) {
       yield call(usersService.modify, data);
       yield put({ type: 'reload' });
     },
-    *create({ payload: values }, { call, put }) {
-      yield call(usersService.create, values);
-      yield put({ type: 'reload' });
-    },
     *reload(action, { put, select }) {
-      const page = yield select(state => state.users.page);
+      const page = yield select(state => state.headerConfig.page);
       yield put({ type: 'fetch', payload: { page } });
     },
     *check({ payload: id }, { call }) {
