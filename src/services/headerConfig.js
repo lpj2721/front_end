@@ -20,12 +20,11 @@ export function modify(values) {
   });
 }
 
-
-export function check(id) {
-  const data = {opr: "check", data: id};
+export function post(record) {
+  console.log(2243433, record);
+  const data = {opr: "post", data: {id:record}};
   return request('/api/headerConfig', {
     method: 'POST',
     body: JSON.stringify(data),
-
   });
 }

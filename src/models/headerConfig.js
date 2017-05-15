@@ -37,8 +37,9 @@ export default {
       const page = yield select(state => state.headerConfig.page);
       yield put({ type: 'fetch', payload: { page } });
     },
-    *check({ payload: id }, { call }) {
-      yield call(usersService.check, id);
+    *post({ payload: {record} }, { call }) {
+      console.log(22333, record);
+      yield call(usersService.post, record);
     }
   },
   subscriptions: {

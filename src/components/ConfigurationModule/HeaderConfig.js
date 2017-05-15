@@ -10,11 +10,11 @@ import { PAGE_SIZE } from '../../constants';
 import HeaderEditModal from './HeaderModal';
 
 function HeaderConfig({ dispatch, list: dataSource, loading, total, page: current }) {
-  function deleteHandler(record) {
+  function doHandler(record) {
     console.log(22244, record);
     dispatch({
-      type: 'headerConfig/remove',
-      payload: record,
+      type: 'headerConfig/post',
+      payload: { record },
     });
   }
 
@@ -73,8 +73,8 @@ function HeaderConfig({ dispatch, list: dataSource, loading, total, page: curren
           <HeaderEditModal record={record} onOk={editHandler.bind(null, record.id)}>
             <a>编辑</a>
           </HeaderEditModal>
-          <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record._id)}>
-            <a href="">删除</a>
+          <Popconfirm onConfirm={doHandler.bind(null, record._id)}>
+            <a href="">测试</a>
           </Popconfirm>
         </span>
       ),
