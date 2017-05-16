@@ -50,6 +50,17 @@ function RouterConfig({ history, app }) {
         });
       },
     },
+    {
+      path: 'Outcome',
+      name: 'OutcomePage',
+      getComponent(nextState, cb) {
+        require.ensure([], (require) => {
+          console.log(333);
+          registerModel(app, require('./models/Outcome'));
+          cb(null, require('./routes/Interface/Outcome'));
+        });
+      },
+    },
   ];
 
   return <Router history={history} routes={routes} />;

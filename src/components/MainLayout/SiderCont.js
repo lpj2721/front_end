@@ -20,10 +20,7 @@ function SiderContent() {
           <Link to="/headerConfig"><Icon type="setting" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>模板配置</Link>
         </Menu.Item>
         <Menu.Item key="3" style={{height:'64px',fontSize:'18px'}}>
-          <Link to="#"><Icon type="share-alt" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>测试管理</Link>
-        </Menu.Item>
-        <Menu.Item key="4" style={{height:'64px',fontSize:'18px'}}>
-          <Link to="#"><Icon type="bar-chart" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>测试结果</Link>
+          <Link to="/Outcome"><Icon type="bar-chart" style={{marginTop:'18px',marginRight:'10px', marginLeft: '10px'}}/>测试结果</Link>
         </Menu.Item>
     </Menu>
   );

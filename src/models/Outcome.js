@@ -1,11 +1,9 @@
 /**
- * Created by WL on 2017/5/10.
+ * Created by WL on 2017/5/16.
  */
-import * as usersService from '../services/headerConfig';
-import { notification } from 'antd';
-
+import * as usersService from '../services/Outcome';
 export default {
-  namespace: 'headerConfig',
+  namespace: 'Outcome',
   state: {
     list: [],
     total: null,
@@ -30,30 +28,16 @@ export default {
         },
       });
     },
-    *patch({ payload: { data } }, { call, put }) {
-      yield call(usersService.modify, data);
-      yield put({ type: 'reload' });
-    },
+
     *reload(action, { put, select }) {
-      const page = yield select(state => state.headerConfig.page);
+      const page = yield select(state => state.Outcome.page);
       yield put({ type: 'fetch', payload: { page } });
     },
-    *post({ payload: {record} }, { call }) {
-      console.log(22333, record);
-      const data = yield call(usersService.post, record);
-      console.log(data);
-      if (data.data.success) {
-        notification.success({
-          message:'测试结果',
-          description:data.data.data
-        });
-      }
-    }
   },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/headerConfig') {
+        if (pathname === '/Outcome') {
           dispatch({ type: 'fetch', payload: query });
         }
       });
